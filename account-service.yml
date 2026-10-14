@@ -1,0 +1,23 @@
+server:
+  port: 8082
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/account_db
+
+services:
+  customer:
+    url: http://localhost:8081
+
+account:
+  products:
+    SAVINGS:
+      maintenance-fee: 0
+      monthly-movement-limit: 20
+    CHECKING:
+      maintenance-fee: 15
+    FIXED_TERM:
+      maintenance-fee: 0
+      monthly-movement-limit: 1
+      movement-day: 15
