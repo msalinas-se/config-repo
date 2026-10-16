@@ -1,3 +1,13 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_HOST:localhost}:8761/eureka
+
+circuit-breaker:
+  timeout: 2s
+
 logging:
   level:
     com.nttdata.bank: DEBUG

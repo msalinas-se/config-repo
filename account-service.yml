@@ -4,20 +4,32 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/account_db
+      uri: mongodb://${MONGO_HOST:localhost}:27017/account_db
 
 services:
   customer:
-    url: http://localhost:8081
+    url: http://customer-service
+  credit:
+    url: http://credit-service
 
 account:
+  vip-minimum-daily-average: 500
   products:
     SAVINGS:
       maintenance-fee: 0
       monthly-movement-limit: 20
+      minimum-opening-amount: 0
+      free-transactions: 10
+      transaction-fee: 2
     CHECKING:
       maintenance-fee: 15
+      minimum-opening-amount: 100
+      free-transactions: 20
+      transaction-fee: 1.5
     FIXED_TERM:
       maintenance-fee: 0
       monthly-movement-limit: 1
       movement-day: 15
+      minimum-opening-amount: 1000
+      free-transactions: 1
+      transaction-fee: 0
