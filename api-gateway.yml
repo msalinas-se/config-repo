@@ -12,8 +12,24 @@ spring:
         - id: account-service
           uri: lb://account-service
           predicates:
-            - Path=/accounts/**
+            - Path=/accounts/**,/debit-cards/**
         - id: credit-service
           uri: lb://credit-service
           predicates:
             - Path=/credits/**,/credit-cards/**
+        - id: yanki-service
+          uri: lb://yanki-service
+          predicates:
+            - Path=/wallets/**
+
+security:
+  jwt:
+    secret: bootcamp-bank-jwt-secret-key-for-hs256-signature
+    expiration: 1h
+  users:
+    - username: admin
+      password: "{bcrypt}$2a$10$r.GW4KmlYdCuNM7UEL6NnuBF/cJ.K0Qu55r/gTbCO8kx9PkCIb9xq"
+      role: ADMIN
+    - username: user
+      password: "{bcrypt}$2a$10$xC/gKUr0YusILJwHCIaVs.9XSAw404Yf34xU6a3PAn8bpm1nZws6G"
+      role: USER

@@ -5,6 +5,17 @@ eureka:
     service-url:
       defaultZone: http://${EUREKA_HOST:localhost}:8761/eureka
 
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_HOST:localhost}:9092
+
+topics:
+  debt-status: debt-status
+  wallet-link: wallet-link
+  wallet-link-result: wallet-link-result
+  wallet-payment: wallet-payment
+  wallet-payment-result: wallet-payment-result
+
 circuit-breaker:
   timeout: 2s
 

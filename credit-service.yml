@@ -12,3 +12,4 @@ services:
 
 credit:
   personal-max-credits: 1
+  debt-check-cron: "0 0 1 * * *"
